@@ -52,7 +52,7 @@ const UserTable = () => {
                 <tbody>
                     {
                         tableData?.filter((items) => {
-                            if (querySearch.length >= 3) {
+                            if (querySearch) {
                                 return items?.data?.fullName.includes(querySearch)
                             } else {
                                 return tableData;

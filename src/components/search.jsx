@@ -3,7 +3,7 @@ import { Form } from 'react-bootstrap'
 import { UserDataContext } from '../context/context'
 
 const SearchData = (props) => {
-    console.log(props?.tableData?.length)
+    // console.log(props?.tableData?.length)
     const {querySearch, setquerySearch} = useContext(UserDataContext)
     return (
         <>

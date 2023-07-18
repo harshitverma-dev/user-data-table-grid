@@ -13,7 +13,7 @@ const NavBar = () => {
                         height="30"
                         className="d-inline-block align-top"
                     />{' '}
-                    React Bootstrap
+                    User Data Grid
                 </Navbar.Brand>
             </Container>
         </Navbar>

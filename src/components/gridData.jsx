@@ -13,20 +13,31 @@ const GridData = () => {
     const handleShow = () => setShow(true);
     const { userFormData, setUserFormData, onChangeFun } = useContext(UserDataContext);
     const tableData = useSelector((state) => state.userReducers.allUserData);
+    const [showError, setShowError] = useState();
     const jobOptions = ['Front-end Developer', 'Software Developer', 'Back-end Developer', 'Process Manager', , 'UI/UX Designer', 'Graphic Designer'];
     const dispatch = useDispatch();
 
     const addUserData = () => {
-        dispatch(addUser(userFormData))
-        setUserFormData({
-            fullName: "",
-            jobTitle: "",
-            companyName: "",
-            emailAddress: "",
-            password: "",
-            confirmPassword: ""
-        })
-        setShow(false);
+        const { fullName, jobTitle, companyName, emailAddress, password, confirmPassword } = userFormData;
+        if (fullName && jobTitle && companyName && emailAddress && password && confirmPassword) {
+            dispatch(addUser(userFormData))
+            setUserFormData({
+                fullName: "",
+                jobTitle: "",
+                companyName: "",
+                emailAddress: "",
+                password: "",
+                confirmPassword: ""
+            })
+            setShow(false);
+        } else {
+
+            setShowError('All details are required !')
+            setTimeout(() => {
+                setShowError('')
+            }, 5000)
+        }
+
     }
     return (
         <Container className='mt-5'>
@@ -34,7 +45,7 @@ const GridData = () => {
                 <Card.Header>
                     <Row>
                         <Col md={6}>
-                            <SearchData tableData={tableData}/>
+                            <SearchData tableData={tableData} />
                         </Col>
                         <Col md={6} className='d-flex justify-content-end'>
                             <Button variant="outline-primary" onClick={handleShow}><BsPlus size={25} />Add New</Button>
@@ -134,6 +145,12 @@ const GridData = () => {
                             />
                         </Form.Group>
                     </Row>
+                    {
+                        showError && <Row>
+                            <Col style={{color: 'red', border: '1px solid red', margin: '20px 15px 10px 15px' , borderRadius: '5px', padding:'5px'}}>{showError}</Col>
+                        </Row>
+                    }
+
 
                 </Modal.Body>
                 <Modal.Footer>
