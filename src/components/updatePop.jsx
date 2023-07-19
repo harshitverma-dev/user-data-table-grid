@@ -21,11 +21,12 @@ const UpdatePop = (props) => {
     const updateDataFun = () => {
         dispatch(userUpdated(id, updateData))
         setShow(false)
+        dispatch()
     }
     return (
         <Modal show={show} onHide={handleClose} animation={false} size="lg">
             <Modal.Header closeButton>
-                <Modal.Title>Add New User</Modal.Title>
+                <Modal.Title>Update user data</Modal.Title>
             </Modal.Header>
             <Modal.Body>
                 <Row>

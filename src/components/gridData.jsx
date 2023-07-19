@@ -31,13 +31,11 @@ const GridData = () => {
             })
             setShow(false);
         } else {
-
             setShowError('All details are required !')
             setTimeout(() => {
                 setShowError('')
             }, 5000)
         }
-
     }
     return (
         <Container className='mt-5'>
@@ -150,8 +148,6 @@ const GridData = () => {
                             <Col style={{color: 'red', border: '1px solid red', margin: '20px 15px 10px 15px' , borderRadius: '5px', padding:'5px'}}>{showError}</Col>
                         </Row>
                     }
-
-
                 </Modal.Body>
                 <Modal.Footer>
                     <Button variant="secondary" onClick={handleClose}>
