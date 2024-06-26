@@ -6,6 +6,7 @@ import UserTable from './userTable';
 import { UserDataContext } from '../context/context';
 import { useDispatch, useSelector } from 'react-redux';
 import { addUser } from '../store/actions/userActions';
+import ImageNoData from '../assets/no-search-data.jpg'
 
 const GridData = () => {
     const [show, setShow] = useState(false);
@@ -56,7 +57,7 @@ const GridData = () => {
                             <UserTable />
                         ) : (
                             <div className='d-flex justify-content-center'>
-                                <img src="https://learncab.com/assets/images/no-data-found.png" alt="no-data-found" style={{ width: '40%' }} />
+                                <img src={ImageNoData} alt="no-data-found" style={{ width: '20%' }} />
                             </div>
                         )
                     }
